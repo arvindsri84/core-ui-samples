@@ -1,0 +1,20 @@
+<c-container class="mt-4">
+    <c-row>
+     <c-col><h3>User home screen</h3></c-col>
+      <c-col>
+        <form [formGroup]="formGroup">
+          <c-multi-select
+            (searchValueChange)="searchValue$.next($event)"
+            [options]="(options$ | async) ?? []"
+            [search]="searchFn"
+            formControlName="sampleSelect"
+            multiple
+            virtualScroller
+            [visibleItems]="8"
+            [itemMinWidth]="333"
+          />
+        </form>
+      </c-col>
+      <c-col><button cButton (click)="navigateToDetails()">Go to details screen</button></c-col>
+    </c-row>
+  </c-container> 
